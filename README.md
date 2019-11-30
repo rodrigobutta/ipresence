@@ -89,13 +89,11 @@ php -S localhost:8080 -t public
 
 Test everithing is routed
 ```
-cd public
-php index.php
+curl -s http://localhost:8080/shout/steve-jobs?limit=2
 ```
+
 
 ### From external server (like XAMP, MAMP, etc)
 
-Point server root to /public
-
-From browser run http://localhost:8080
-
+(remember to point server root to /public)
+Then in the browser run http://localhost:8080/shout/steve-jobs?limit=2

@@ -23,8 +23,8 @@ class ShoutController extends ApiController{
         $author = str_replace('-',' ',$request->author);
 
         $result = new \stdClass();
-        $result->author = $author;
-        $result->limit = $limit;
+        // $result->author = $author;
+        // $result->limit = $limit;
         
         $items = $this->repository->getByAuthor($author,$limit);
         // return $this->notFoundResponse();
@@ -34,7 +34,8 @@ class ShoutController extends ApiController{
             $items[$key]['quote'] = mb_strtoupper( rtrim(rtrim($item['quote'],'!'),'.') . '!');
         };
 
-        $result->items = $items;
+        // $result->items = $items;
+        $result = $items;
 
         $this->okResponse($result);
     }
