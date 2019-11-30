@@ -108,7 +108,7 @@ curl -s http://localhost:8080/shout/rodrigo-butta
 ```
 
 
-### B) Without http server
+### B) Command line (without HTTP server)
 ```
 cd public
 php command.php shout steve-jobs 5
