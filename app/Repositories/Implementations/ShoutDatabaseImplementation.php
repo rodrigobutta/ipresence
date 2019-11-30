@@ -4,7 +4,7 @@ namespace App\Repositories\Implementations;
 
 use App\Repositories\ShoutRepository;
 use App\Utils\Database;
-use App\Utils\Cache;
+use App\Utils\FileCache;
 
 class ShoutDatabaseImplementation implements ShoutRepository
 {
@@ -19,8 +19,12 @@ class ShoutDatabaseImplementation implements ShoutRepository
     public function getByAuthor($author, $limit)
     {
 
-        $items = new Cache(__FUNCTION__, $author, $limit);
+        $cache = new FileCache(__FUNCTION__, $author, $limit);
+        if($cache->exists()){            
+            return $cache->get();
+        }
         
+
         $statement = "
             SELECT
                 quote, author
@@ -33,9 +37,9 @@ class ShoutDatabaseImplementation implements ShoutRepository
             
             $statement = $this->db->prepare($statement);
             $statement->execute(array($author));            
-            $result = $statement->fetchAll(\PDO::FETCH_ASSOC);
-            
-            return $result;
+            $items = $statement->fetchAll(\PDO::FETCH_ASSOC);
+
+            return $cache->put($items);
 
         } catch (\PDOException $e) {
             exit($e->getMessage());
