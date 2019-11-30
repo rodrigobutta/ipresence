@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     '320cde22f66dd4f5d3fd621d3e88b98f' => $vendorDir . '/symfony/polyfill-ctype/bootstrap.php',
+    '1caa1d8a296b7305ecb1db3aa43f32a3' => $baseDir . '/app/Helpers/FileHelper.php',
 );

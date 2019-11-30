@@ -4,6 +4,7 @@ namespace App\Repositories\Implementations;
 
 use App\Repositories\ShoutRepository;
 use App\Utils\Database;
+use App\Utils\Cache;
 
 class ShoutDatabaseImplementation implements ShoutRepository
 {
@@ -17,6 +18,8 @@ class ShoutDatabaseImplementation implements ShoutRepository
 
     public function getByAuthor($author, $limit)
     {
+
+        $items = new Cache(__FUNCTION__, $author, $limit);
         
         $statement = "
             SELECT
