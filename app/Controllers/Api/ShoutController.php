@@ -20,7 +20,7 @@ class ShoutController extends ApiController{
             $limit = 2; // return $this->unprocessableEntityResponse();       
         }
 
-        $author = $request->author;
+        $author = str_replace('-',' ',$request->author);
 
         $result = new \stdClass();
         $result->author = $author;

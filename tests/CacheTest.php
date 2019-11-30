@@ -14,17 +14,14 @@ final class CacheTest extends TestCase
     {
 
         $cache = new FileCache("test","save","retrieve");
-        
-
         $data = '{"some":"data"}';
 
         $cache->put($data);
-
         if($cache->exists()){                    
             $retrievedData = $cache->get();
         }
         else{
-            $retrievedData = "unexistent";
+            $retrievedData = "couln't create cache";
         }
             
         $this->assertEquals(

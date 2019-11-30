@@ -43,32 +43,32 @@ curl -s http://awesomequotesapi.com/shout/steve-jobs?limit=2
 
 ## Install
 
-Instal dependenncies
+1) Instal dependencies
 ```
 composer install
 ```
 
-Create absolute symlink in public to store cache (for now) in /storage/cache (outside public)
+2) Create absolute symlink in public to store cache (for now) in /storage/cache (outside public) 
+** execute it under /, not in /public **
 ```
 ln -s $PWD/storage/cache public/cache
 ```
 
 
-**OPTIONAL (MYSQL DATABASE QUOTES SOURCE)**
+**OPTIONAL (Adding a second source MYSQL DATABASE with the same quotes)**
 
 I've added an alternative MySql source with the same quotes in the quotes.json to show the use of database abstraction and so.
 So if you want to use it, you need to:
-1) Create a blank database.
-2) Config it's credentials in .env file.
-3) Run migrations (wich will create a QUOTES table) 
+o 1) Create a blank database.
+o 2) Config it's credentials in .env file.
+o 3) Run migrations (wich will create a QUOTES table) 
 ```
 php database/migrations.php
 ```
-4) Run seeds (wich will populate QUOTES table with the same quotes retrieved from the repository quotes.json file) 
+o 4) Run seeds (wich will populate QUOTES table with the same quotes retrieved from the repository quotes.json file) 
 ```
 php database/seeds.php
 ```
-
 
 
 
