@@ -80,13 +80,18 @@ php database/seeds.php
 
 ## Run
 
-### From command 
 
-Start local server
+### Online
+
+https://ipresence.rodrigobutta.com/shout/steve-jobs?limit=2
+
+
+### Local from command 
+
+Start local server (pwd in the root of the app)
 ```
 php -S localhost:8080 -t public
 ```
-
 
 Test OK
 ```
@@ -103,8 +108,7 @@ Test not found
 curl -s http://localhost:8080/shout/rodrigo-butta
 ```
 
-
-### From external server (like XAMP, MAMP, etc)
+### From local server (XAMP, MAMP, ...)
 
 (remember to point server root to /public)
 Then in the browser run http://localhost:8080/shout/steve-jobs?limit=2
