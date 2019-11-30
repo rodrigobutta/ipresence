@@ -10,19 +10,21 @@ class ShoutController extends ApiController{
     
     public function __construct($datasources, $datasource)
     {
-        $this->repository = new $datasources[$datasource]; // new ShoutDatabaseImplementation();
+        $this->repository = new $datasources[$datasource]; // ShoutInterface implementations
     }
 
     public function getByAuthor($request)
     {
         
-        if(!$request->limit){
+        if(!$request->limit){            
             return $this->unprocessableEntityResponse();
         }
 
+        $author = $request->author;
+
         $result = new \stdClass();
 
-        $items = $this->repository->getByAuthor('stevie',2);
+        $items = $this->repository->getByAuthor($author,2);
         $result->items = $items;
 
         // return $this->notFoundResponse();

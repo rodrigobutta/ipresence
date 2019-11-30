@@ -22,12 +22,14 @@ class ShoutDatabaseImplementation implements ShoutRepository
             SELECT
                 quote, author
             FROM
-                quotes;
+                quotes
+            WHERE author = ?;
         ";
 
         try {
             
-            $statement = $this->db->query($statement);
+            $statement = $this->db->prepare($statement);
+            $statement->execute(array($author));            
             $result = $statement->fetchAll(\PDO::FETCH_ASSOC);
             
             return $result;

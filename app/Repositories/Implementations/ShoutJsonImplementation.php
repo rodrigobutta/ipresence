@@ -12,11 +12,11 @@ class ShoutJsonImplementation implements ShoutRepository
         
         $jsonFile = file_get_contents("./quotes.json");
         
-        $items = json_decode($jsonFile, true);
-
-        // var_dump($items);
-        // exit();
+        $items = json_decode($jsonFile, true);        
         $items = $items['quotes'];
+        $items = array_filter($items, function($el) use($author){
+            return strtolower($el['author']) == strtolower($author);
+        });
         
         return $items;
 
