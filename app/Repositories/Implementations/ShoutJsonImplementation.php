@@ -3,7 +3,7 @@
 namespace App\Repositories\Implementations;
 
 use App\Repositories\ShoutRepository;
-use App\Utils\FileCache;
+use App\Cache\Implementations\FileCache;
 
 class ShoutJsonImplementation implements ShoutRepository
 {

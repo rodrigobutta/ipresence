@@ -1,10 +1,10 @@
 <?php
-namespace App\Utils;
+namespace App\Cache\Implementations;
 
 use App\Helpers\FileHelper;
+use App\Cache\CacheInterface;
 
-
-class FileCache {
+class FileCache implements CacheInterface{
 
     protected $cacheFile;
   

@@ -4,7 +4,7 @@ namespace App\Repositories\Implementations;
 
 use App\Repositories\ShoutRepository;
 use App\Utils\Database;
-use App\Utils\FileCache;
+use App\Cache\Implementations\FileCache;
 
 class ShoutDatabaseImplementation implements ShoutRepository
 {
