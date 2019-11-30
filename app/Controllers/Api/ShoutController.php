@@ -29,16 +29,15 @@ class ShoutController extends ApiController{
         $items = $this->repository->getByAuthor($author,$limit);
         // return $this->notFoundResponse();
 
-        $this->shout($items);
+        //shout!
+        foreach($items as $key => $item){
+            $items[$key]['quote'] = mb_strtoupper( rtrim(rtrim($item['quote'],'!'),'.') . '!');
+        };
+
         $result->items = $items;
 
         $this->okResponse($result);
     }
 
-    private function shout(&$arr){
-        foreach ($arr as $key => $field) {
-            $arr[$key]->quote = rtrim($arr[$key]->quote,'!') . "!";            
-        }
-    }
 
 }

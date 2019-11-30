@@ -15,6 +15,7 @@ class FileCache implements CacheInterface{
 
     public function exists()
     {
+        if(getenv('CACHE')!='file') return false;
         return file_exists($this->cacheFile) && file_get_contents($this->cacheFile) !== '';
     }
 
@@ -27,7 +28,10 @@ class FileCache implements CacheInterface{
 
     public function put($data)
     {
-        file_put_contents($this->cacheFile, json_encode($data));
+    
+        if(getenv('CACHE')=='file'){
+            file_put_contents($this->cacheFile, json_encode($data));
+        }
         return $data;
         // return [$data,"cached"=>false];
     }
