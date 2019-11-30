@@ -41,13 +41,15 @@ curl -s http://awesomequotesapi.com/shout/steve-jobs?limit=2
 
 
 
-### Install
+## Install
 
 ```
 composer install
 ```
 
 **OPTIONAL (MYSQL DATABASE QUOTES SOURCE)**
+
+
 I've added an alternative MySql source with the same quotes in the quotes.json to show the use of database abstraction and so.
 So if you want to use it, you need to:
 1) Create a blank database.
@@ -62,3 +64,28 @@ php database/seeds.php
 ```
 
 
+
+
+
+
+## Run
+
+
+### From command 
+
+Start local server
+```
+php -S localhost:8080 -t public
+```
+
+Test everithing is routed
+```
+cd public
+php index.php
+```
+
+### From external server (like XAMP, MAMP, etc)
+
+Point server root to /public
+
+From browser run http://localhost:8080

@@ -32,7 +32,7 @@ class Database {
                 $pass
             );
 
-            echo 'MySql database connection ok!';
+            // echo 'MySql database connection ok!';
             
         } catch (\PDOException $e) {
             exit($e->getMessage());
