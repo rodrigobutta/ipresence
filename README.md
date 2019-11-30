@@ -64,7 +64,14 @@ php database/seeds.php
 ```
 
 
+ln -s /storage public/storage
+ln -s /storage/cache public/cache
 
+
+## Test
+
+
+./vendor/bin/phpunit --testdox --bootstrap vendor/autoload.php tests
 
 
 

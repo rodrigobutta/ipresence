@@ -7,9 +7,11 @@ class FileHelper
 	public static function sanitizeFileName($string)
 	{
 
-		$noGoChars = array(" ", '"', "'", "&", "/", "\\", "?", "#");
+		$noGoChars = array('"',',','!', '%', "'", '&', '/', '\\', '?','@', '#');
 
-		return str_replace($noGoChars, '_', $string);
+		$string = str_replace(' ', '_', $string);
+
+		return str_replace($noGoChars, '', $string);
 	}
 
 }

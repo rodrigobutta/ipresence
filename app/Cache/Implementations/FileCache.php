@@ -15,31 +15,32 @@ class FileCache implements CacheInterface{
 
     public function exists()
     {
-        if(getenv('CACHE')!='file') return false;
+        // if(getenv('CACHE')!='file') return false;
         return file_exists($this->cacheFile) && file_get_contents($this->cacheFile) !== '';
     }
 
     public function get()
     {
         $json_results = file_get_contents($this->cacheFile);
-        return json_decode($json_results);
-        // return [json_decode($json_results),"cached"=>true];
+        return json_decode($json_results,true);      
     }
 
     public function put($data)
     {
     
-        if(getenv('CACHE')=='file'){
+        // if(getenv('CACHE')=='file'){
             file_put_contents($this->cacheFile, json_encode($data));
-        }
+        // }
         return $data;
-        // return [$data,"cached"=>false];
     }
 
     private function getCacheFilePath($args)
     {
 
-        $path = $_SERVER['DOCUMENT_ROOT'] . '/cache/';
+        $path = $_SERVER['DOCUMENT_ROOT'] . '/storage/cache/';
+
+        // $path = '/storage/cache/';
+
 
         $filename = '';
         foreach ($args as $index => $arg) {
