@@ -1,8 +1,11 @@
 <?php
 
+use App\Controllers\Api\ShoutController;
+
+
 $routing->with('/shout', function () use ($routing, $datasources) {
 
-    $controller = new App\Controllers\ShoutController($datasources,'database');
+    $controller = new ShoutController($datasources,'database');
 
     $routing->respond('GET', '/?', function ($request, $response) {
         return 'You might be forgotting the author..';

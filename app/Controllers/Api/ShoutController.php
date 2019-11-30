@@ -1,7 +1,7 @@
 <?php
-namespace App\Controllers;
+namespace App\Controllers\Api;
 
-use App\ApiController;
+use App\Controllers\ApiController;
 
 
 class ShoutController extends ApiController{

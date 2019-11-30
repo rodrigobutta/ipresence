@@ -1,5 +1,5 @@
 <?php
-namespace App;
+namespace App\Controllers;
 
 // inherited class in all the API controllers, for now it's only the shout one.
 class ApiController{
