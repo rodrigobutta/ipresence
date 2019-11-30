@@ -11,10 +11,8 @@ class ShoutDatabaseImplementation implements ShoutRepository
 
     public function __construct()
     {
-        
         $db = new Database();
-        $this->db = $db->getConnection();
-        
+        $this->db = $db->getConnection();   
     }
 
     public function getByAuthor($author, $limit)
@@ -22,7 +20,7 @@ class ShoutDatabaseImplementation implements ShoutRepository
         
         $statement = "
             SELECT
-                author, quote
+                quote, author
             FROM
                 quotes;
         ";

@@ -10,11 +10,7 @@ class ShoutController extends ApiController{
     
     public function __construct($datasources, $datasource)
     {
-        
-        // i could play with reflection to build a really dynamic interfasce implementation according to sources, but for now, old fashion way
-        // $reflect = new \ReflectionClass('App\Repositories\Implementations\ShoutDatabaseImplementation');
         $this->repository = new $datasources[$datasource]; // new ShoutDatabaseImplementation();
-
     }
 
     public function getByAuthor($request)
