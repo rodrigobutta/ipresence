@@ -7,7 +7,7 @@ class Database {
 
     public function __construct()
     {
-        $this->connectToMySql();
+        $this->connectToMySql(); // MySql for test poruposes (simple to implement) but it could be mongo, firebase, etc
     }
 
     public function getConnection()
@@ -25,11 +25,15 @@ class Database {
         $db   = getenv('DB_DATABASE');
 
         try {
+            
             $this->connection = new \PDO(
                 "mysql:host=$host;port=$port;charset=utf8mb4;dbname=$db",
                 $user,
                 $pass
             );
+
+            echo 'MySql database connection ok!';
+            
         } catch (\PDOException $e) {
             exit($e->getMessage());
         }

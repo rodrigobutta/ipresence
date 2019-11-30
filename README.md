@@ -46,3 +46,19 @@ curl -s http://awesomequotesapi.com/shout/steve-jobs?limit=2
 ```
 composer install
 ```
+
+**OPTIONAL (MYSQL DATABASE QUOTES SOURCE)**
+I've added an alternative MySql source with the same quotes in the quotes.json to show the use of database abstraction and so.
+So if you want to use it, you need to:
+1) Create a blank database.
+2) Config it's credentials in .env file.
+3) Run migrations (wich will create a QUOTES table) 
+```
+php database/migrations.php
+```
+4) Run seeds (wich will populate QUOTES table with the same quotes retrieved from the repository quotes.json file) 
+```
+php database/seeds.php
+```
+
+
