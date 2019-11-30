@@ -54,6 +54,8 @@ composer install
 ln -s $PWD/storage/cache public/cache
 ```
 
+3) The .ENV file has some configurations worth to see, but if you'll only test with the provided json as source, theres no need to config anything there.
+
 
 **OPTIONAL (Adding a second source MYSQL DATABASE with the same quotes)**
 
