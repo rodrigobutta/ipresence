@@ -1,7 +1,7 @@
 <?php
 namespace App;
 
-
+// inherited class in all the API controllers, for now it's only the shout one.
 class ApiController{
 
     // Parse the Class to json and return a 200 for the api
