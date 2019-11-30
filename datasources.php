@@ -3,5 +3,5 @@
 use App\Repositories\Implementations\ShoutDatabaseImplementation;
 
 return [
-    'datasource' => ShoutDatabaseImplementation::class
+    'database' => ShoutDatabaseImplementation::class
 ];

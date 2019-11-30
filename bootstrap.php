@@ -11,7 +11,7 @@ use App\Utils\Database;
 $dotenv = Dotenv::create(__DIR__);
 $dotenv->load();
 
-$config = require_once __DIR__.'/config.php';
+$datasources = require_once __DIR__.'/datasources.php';
 
 
 // routing 

@@ -5,19 +5,15 @@ use App\ApiController;
 
 
 class ShoutController extends ApiController{
-
-    private $source;
-    private $config;
+    
     private $repository;
     
-    public function __construct($config, $source)
+    public function __construct($datasources, $datasource)
     {
-        $this->source = $source;
-        $this->config = $config;
-
+        
         // i could play with reflection to build a really dynamic interfasce implementation according to sources, but for now, old fashion way
         // $reflect = new \ReflectionClass('App\Repositories\Implementations\ShoutDatabaseImplementation');
-        $this->repository = new $this->config['datasource']; // new ShoutDatabaseImplementation();
+        $this->repository = new $datasources[$datasource]; // new ShoutDatabaseImplementation();
 
     }
 
