@@ -43,12 +43,18 @@ curl -s http://awesomequotesapi.com/shout/steve-jobs?limit=2
 
 ## Install
 
+Instal dependenncies
 ```
 composer install
 ```
 
-**OPTIONAL (MYSQL DATABASE QUOTES SOURCE)**
+Create absolute symlink in public to store cache (for now) in /storage/cache (outside public)
+```
+ln -s $PWD/storage/cache public/cache
+```
 
+
+**OPTIONAL (MYSQL DATABASE QUOTES SOURCE)**
 
 I've added an alternative MySql source with the same quotes in the quotes.json to show the use of database abstraction and so.
 So if you want to use it, you need to:
@@ -64,19 +70,15 @@ php database/seeds.php
 ```
 
 
-ln -s /storage public/storage
-ln -s /storage/cache public/cache
 
 
-## Test
-
+## Run Tests
 
 ./vendor/bin/phpunit --testdox --bootstrap vendor/autoload.php tests
 
 
 
 ## Run
-
 
 ### From command 
 
@@ -96,3 +98,4 @@ php index.php
 Point server root to /public
 
 From browser run http://localhost:8080
+

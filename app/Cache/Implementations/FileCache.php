@@ -37,10 +37,8 @@ class FileCache implements CacheInterface{
     private function getCacheFilePath($args)
     {
 
-        $path = $_SERVER['DOCUMENT_ROOT'] . '/storage/cache/';
-
-        // $path = '/storage/cache/';
-
+        // $path = $_SERVER['DOCUMENT_ROOT'] . '/storage/cache/';
+        $path = './cache/'; // using symlink to private  (under storage/cache)
 
         $filename = '';
         foreach ($args as $index => $arg) {
