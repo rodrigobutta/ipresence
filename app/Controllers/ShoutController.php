@@ -17,12 +17,15 @@ class ShoutController extends ApiController{
     {
         
 
-        // return $this->unprocessableEntityResponse();
+        if(!$request->limit){
+            return $this->unprocessableEntityResponse();
+        }
+
         // return $this->notFoundResponse();
 
         // $result = $this->shoutRepository->findAll();
         $result = new \stdClass();
-        $result->author = 'rrrrr';
+        $result->author = $request->author;
 
         $this->okResponse($result);
 

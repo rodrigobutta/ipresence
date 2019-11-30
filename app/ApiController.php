@@ -19,7 +19,7 @@ class ApiController{
         $response['body'] = json_encode([
             'error' => 'Invalid input'
         ]);
-        return $this>returnResponse($response);
+        return $this->returnResponse($response);
     }
 
     // is not a 404 (already catched in the routes module), this one is for not found authors or rejections like that
@@ -29,11 +29,11 @@ class ApiController{
         $response['body'] = json_encode([
             'error' => 'Not found'
         ]);
-        return $this>returnResponse($response);
+        return $this->returnResponse($response);
     }
 
     // common return for every type of returning in the api
-    public function returnResponse($response)
+    private function returnResponse($response)
     {
         // header($response['header']);
         if ($response['body']) {
