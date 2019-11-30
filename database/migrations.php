@@ -1,5 +1,10 @@
 <?php
-require '../bootstrap.php';
+require './bootstrap.php';
+
+use App\Utils\Database;
+
+$db = new Database();
+$db = $db->getConnection(); 
 
 $statement = <<<EOS
     CREATE TABLE IF NOT EXISTS quotes (

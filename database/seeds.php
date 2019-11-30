@@ -1,5 +1,11 @@
 <?php
-require 'bootstrap.php';
+require './bootstrap.php';
+
+
+use App\Utils\Database;
+
+$db = new Database();
+$db = $db->getConnection(); 
 
 $statement = <<<EOS
     INSERT INTO quotes
