@@ -87,9 +87,20 @@ Start local server
 php -S localhost:8080 -t public
 ```
 
-Test everithing is routed
+
+Test OK
 ```
 curl -s http://localhost:8080/shout/steve-jobs?limit=2
+```
+
+Test limit
+```
+curl -s http://localhost:8080/shout/steve-jobs?limit=15
+```
+
+Test not found
+```
+curl -s http://localhost:8080/shout/rodrigo-butta
 ```
 
 

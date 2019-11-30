@@ -13,21 +13,21 @@ class ApiController{
     }
 
     // if the input is wrong and i coulnd't catch it in the route module, may be the controller needs to handle it
-    public function unprocessableEntityResponse()
+    public function unprocessableEntityResponse($message='API request error')
     {
         // $response['header'] = 'HTTP/1.1 422 Unprocessable Entity';
         $response['body'] = json_encode([
-            'error' => 'Invalid input'
+            'error' => $message
         ]);
         return $this->returnResponse($response);
     }
 
     // is not a 404 (already catched in the routes module), this one is for not found authors or rejections like that
-    public function notFoundResponse()
+    public function notFoundResponse($message='API not found')
     {
         // $response['header'] = 'HTTP/1.1 404 Not Found';
         $response['body'] = json_encode([
-            'error' => 'Not found'
+            'error' => $message
         ]);
         return $this->returnResponse($response);
     }
