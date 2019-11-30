@@ -15,27 +15,30 @@ class ShoutController extends ApiController{
 
     public function getByAuthor($request)
     {
-        
-        if(!$limit = $request->limit){            
-            // return $this->unprocessableEntityResponse();       
-            $limit = 2;
+
+        if(!$limit = $request->limit){                        
+            $limit = 2; // return $this->unprocessableEntityResponse();       
         }
 
         $author = $request->author;
 
         $result = new \stdClass();
+        $result->author = $author;
+        $result->limit = $limit;
         
         $items = $this->repository->getByAuthor($author,$limit);
-        
-        $result->items = $items;
-
         // return $this->notFoundResponse();
 
-        $result->author = $request->author;
+        $this->shout($items);
+        $result->items = $items;
 
         $this->okResponse($result);
-
     }
 
+    private function shout(&$arr){
+        foreach ($arr as $key => $field) {
+            $arr[$key]->quote = rtrim($arr[$key]->quote,'!') . "!";            
+        }
+    }
 
 }
