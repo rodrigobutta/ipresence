@@ -2,7 +2,7 @@
 namespace App\Controllers;
 
 
-class ShoutController {
+class ShoutController{
 
     private $db;
     
@@ -12,25 +12,27 @@ class ShoutController {
       
     }
 
-    public function processRequest($request)
+    public function getByAuthor($request)
     {
         
 
         // $response = $this->unprocessableEntityResponse();
-        $response = $this->notFoundResponse();
+        // $response = $this->notFoundResponse();
 
-        // $result = [];
-        // $response['header'] = 'HTTP/1.1 200 OK';
-        // $response['body'] = json_encode($result);
+        // $result = $this->shoutRepository->findAll();
+        $result = new \stdClass();
+        $result->author = 'rrrrr';
 
-        
-        // header($response['header']);
-        if ($response['body']) {
-            echo $response['body'];
-        }
+        $this->okResponse($result);
 
     }
 
+    private function okResponse($result)
+    {
+        // $response['header'] = 'HTTP/1.1 200 OK';
+        $response['body'] = json_encode($result);  
+        return $this->returnResponse($response);
+    }
 
     private function unprocessableEntityResponse()
     {
@@ -38,7 +40,7 @@ class ShoutController {
         $response['body'] = json_encode([
             'error' => 'Invalid input'
         ]);
-        return $response;
+        return $this>returnResponse($response);
     }
 
     private function notFoundResponse()
@@ -47,7 +49,15 @@ class ShoutController {
         $response['body'] = json_encode([
             'error' => 'Not found'
         ]);
-        return $response;
+        return $this>returnResponse($response);
+    }
+
+    private function returnResponse($response)
+    {
+        // header($response['header']);
+        if ($response['body']) {
+            echo $response['body'];
+        }
     }
 
 }

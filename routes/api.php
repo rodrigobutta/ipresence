@@ -9,11 +9,7 @@ $routing->with('/shout', function () use ($routing, $db) {
     });
 
     $routing->respond('GET', '/[:author]', function ($request, $response) use($controller){
-        
-        // return 'Shout for ' . $request->author;
-        
-        $controller->processRequest($request);
-
+        $controller->getByAuthor($request);
     });
 
 });
