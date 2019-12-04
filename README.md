@@ -1,6 +1,6 @@
 ## Install
 
-1) Instal dependencies
+1) Install dependencies
 ```
 composer install
 ```
